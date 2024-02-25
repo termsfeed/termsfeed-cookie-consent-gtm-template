@@ -1,5 +1,5 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
-  - sha: 0
+  - sha: 9d03ce804db78efad5d60944ce3aabd576b1e831
     changeNotes: Initial release.
