@@ -13,13 +13,17 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "TermsFeed Cookie Consent",
-  "categories": ["TAG_MANAGEMENT", "UTILITY"],
+  "displayName": "TermsFeed Cookie Consent (4.1)",
+  "categories": [
+    "TAG_MANAGEMENT",
+    "UTILITY"
+  ],
   "brand": {
-    "id": "brand_dummy",
-    "displayName": ""
+    "id": "termsfeed_cookie_consent",
+    "displayName": "TermsFeed Cookie Consent (4.1)",
+    "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUaVKkpX68rYa8yZrI0Z7M7bbVXgsBnjsZojsZzlsp1mMuHpdKJp9OKqNOWsdiXsdiYstidttqnvd6sweC8zebB0ejg6PTh6fT5+v39/v7////h+4i/AAAAAWJLR0QadWfkMgAAAGFJREFUSMdjYBgFo2AoAmEpHIAHhwZRXBoEh5gGbkYUIERQAzuqGO8g0MCJKsZHUIOEGBBwgLjcQIa4JHHBygXi8pMQD6MaqKhBBJcGARwaWNhggBnEZYVzmUbLu1EwGAAAtPMnQitCqewAAAAASUVORK5CYII="
   },
-  "description": "TermsFeed",
+  "description": "Integrates TermsFeed Cookie Consent (4.1) notice banner and enables Google Consent Mode V2. More information at https://www.termsfeed.com/cookie-consent/",
   "containerContexts": [
     "WEB"
   ]
