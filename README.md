@@ -1,4 +1,4 @@
-**TermsFeed Cookie Consent Template for Google Tag Manager**
+**TermsFeed Cookie Consent (4.1) Template for Google Tag Manager**
 
 Google Tag Manager Template for TermsFeed Cookie Consent (4.1) enabling website owners to be compliant with the GDPR and privacy data regulations by collecting and handling user consent through a cookie consent notice banner. It supports Google Consent Mode V2.
 
