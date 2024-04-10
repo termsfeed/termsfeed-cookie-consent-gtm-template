@@ -19,7 +19,7 @@ ___INFO___
     "UTILITY"
   ],
   "brand": {
-    "id": "termsfeed_cookie_consent",
+    "id": "termsfeed_cookie_consent_4_1",
     "displayName": "TermsFeed Cookie Consent (4.1)",
     "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUaVKkpX68rYa8yZrI0Z7M7bbVXgsBnjsZojsZzlsp1mMuHpdKJp9OKqNOWsdiXsdiYstidttqnvd6sweC8zebB0ejg6PTh6fT5+v39/v7////h+4i/AAAAAWJLR0QadWfkMgAAAGFJREFUSMdjYBgFo2AoAmEpHIAHhwZRXBoEh5gGbkYUIERQAzuqGO8g0MCJKsZHUIOEGBBwgLjcQIa4JHHBygXi8pMQD6MaqKhBBJcGARwaWNhggBnEZYVzmUbLu1EwGAAAtPMnQitCqewAAAAASUVORK5CYII="
   },
