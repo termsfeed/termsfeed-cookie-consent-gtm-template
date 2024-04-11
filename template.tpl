@@ -102,7 +102,6 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const log = require('logToConsole');
 const getCookieValues = require('getCookieValues');
-const setDefaultConsentState = require('setDefaultConsentState');
 const updateConsentState = require('updateConsentState');
 const decodeUriComponent = require('decodeUriComponent');
 const JSON = require('JSON');
