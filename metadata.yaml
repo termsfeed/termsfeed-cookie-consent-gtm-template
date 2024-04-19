@@ -1,5 +1,7 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
+  - sha: dfc284796f913fab14b67f18584064ddfbcf7852
+    changeNotes: Updated with Description, Brand icon SVG, removed unused parameter.
   - sha: 9d03ce804db78efad5d60944ce3aabd576b1e831
     changeNotes: Initial release.
