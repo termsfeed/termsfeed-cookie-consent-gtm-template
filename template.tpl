@@ -123,7 +123,7 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "no",
         "displayValue": "Norwegian"
-      }
+      },
       {
         "value": "nl",
         "displayValue": "Dutch"
