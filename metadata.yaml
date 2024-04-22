@@ -1,6 +1,8 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
+  - sha: 210c787d4edb617ae26a6b1f172cf4007c1be57f
+    changeNotes: Updated with language select menu, removed consent type (default set to express), added default consent states
   - sha: dfc284796f913fab14b67f18584064ddfbcf7852
     changeNotes: Updated with Description, Brand icon SVG, removed unused parameter.
   - sha: 9d03ce804db78efad5d60944ce3aabd576b1e831
