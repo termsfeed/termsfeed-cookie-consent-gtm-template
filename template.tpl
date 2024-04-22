@@ -34,22 +34,6 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
-    "type": "RADIO",
-    "name": "consent_type",
-    "displayName": "Choose your compliance",
-    "radioItems": [
-      {
-        "value": "implied",
-        "displayValue": "ePrivacy Directive"
-      },
-      {
-        "value": "express",
-        "displayValue": "GDPR + ePrivacy Directive"
-      }
-    ],
-    "simpleValueType": true
-  },
-  {
     "type": "TEXT",
     "name": "website_name",
     "displayName": "Your website name",
@@ -94,6 +78,59 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "simpleValueType": true
+  },
+  {
+    "type": "SELECT",
+    "name": "language",
+    "displayName": "Choose your default language",
+    "selectItems": [
+      {
+        "value": "en",
+        "displayValue": "English"
+      },
+      {
+        "value": "en_gb",
+        "displayValue": "English (UK)"
+      },
+      {
+        "value": "interstitial",
+        "displayValue": "Interstitial dialog"
+      },
+      {
+        "value": "de",
+        "displayValue": "German"
+      },
+      {
+        "value": "fr",
+        "displayValue": "French"
+      },
+      {
+        "value": "es",
+        "displayValue": "Spanish"
+      },
+      {
+        "value": "ca_es",
+        "displayValue": "Catalan"
+      },
+      {
+        "value": "it",
+        "displayValue": "Italian"
+      },
+      {
+        "value": "sv",
+        "displayValue": "Swedish"
+      },
+      {
+        "value": "no",
+        "displayValue": "Norwegian"
+      }
+      {
+        "value": "nl",
+        "displayValue": "Dutch"
+      }
+    ],
+    "defaultValue": "en",
+    "simpleValueType": true
   }
 ]
 
@@ -102,6 +139,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const log = require('logToConsole');
 const getCookieValues = require('getCookieValues');
+const setDefaultConsentState = require('setDefaultConsentState');
 const updateConsentState = require('updateConsentState');
 const decodeUriComponent = require('decodeUriComponent');
 const JSON = require('JSON');
@@ -111,6 +149,12 @@ const queryPermission = require('queryPermission');
 const callInWindow = require('callInWindow');
 const setInWindow = require('setInWindow');
 
+setDefaultConsentState({
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied'
+});
 
 let consentSettings = {
     ad_storage: 'denied',
@@ -142,17 +186,15 @@ setInWindow('callback_scripts_specific_loaded', function (level) {
             consentSettings.ad_personalization = 'granted';
             break;
     }
-
     updateConsentState(consentSettings);
 });
 
 function initCookieConsent() {
-
     callInWindow('cookieconsent.run', {
         "notice_banner_type": data.notice_banner_type,
-        "consent_type": data.consent_type,
+        "consent_type": "express",
         "palette": data.palette,
-        "language": "en",
+        "language": data.language,
         "page_load_consent_levels": ["strictly-necessary"],
         "notice_banner_reject_button_hide": false,
         "preferences_center_close_button_hide": false,
@@ -160,11 +202,11 @@ function initCookieConsent() {
         "callbacks": {
             "scripts_all_loaded": "callback_scripts_all_loaded",
             "scripts_specific_loaded": "callback_scripts_specific_loaded"
-        }
+        },
+        "callbacks_force": true
     });
-
-
 }
+
 let url = 'https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js';
 if (queryPermission('inject_script', url)) {
     injectScript(url, initCookieConsent, data.gtmOnFailure);
