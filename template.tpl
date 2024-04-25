@@ -1,4 +1,4 @@
-___TERMS_OF_SERVICE___
+﻿___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -148,14 +148,7 @@ const injectScript = require('injectScript');
 const queryPermission = require('queryPermission');
 const callInWindow = require('callInWindow');
 const setInWindow = require('setInWindow');
-
-setDefaultConsentState({
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied',
-  wait_for_update: 500
-});
+const termsfeedCookieConsentLevels = 'cookie_consent_level';
 
 let consentSettings = {
     ad_storage: 'denied',
@@ -190,6 +183,38 @@ setInWindow('callback_scripts_specific_loaded', function (level) {
     updateConsentState(consentSettings);
 });
 
+function denyAllLevels() {
+    setDefaultConsentState({
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        wait_for_update: 500
+    });
+}
+
+function initConsentFromCookie() {
+    const cookie = getCookieValues(termsfeedCookieConsentLevels)[0];
+
+    if (!cookie) {
+        denyAllLevels();
+        return;
+    }
+
+    const cookieObject = JSON.parse(cookie);
+    const consentStatus = cookieObject.targeting ? 'granted' : 'denied';
+
+    consentSettings = {
+        analytics_storage: cookieObject.tracking ? 'granted' : 'denied',
+        ad_storage: consentStatus,
+        ad_user_data: consentStatus,
+        ad_personalization: consentStatus,
+    };
+
+    updateConsentState(consentSettings);
+
+}
+
 function initCookieConsent() {
     callInWindow('cookieconsent.run', {
         "notice_banner_type": data.notice_banner_type,
@@ -210,6 +235,7 @@ function initCookieConsent() {
 
 let url = 'https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js';
 if (queryPermission('inject_script', url)) {
+    initConsentFromCookie();
     injectScript(url, initCookieConsent, data.gtmOnFailure);
     data.gtmOnSuccess();
 } else {
