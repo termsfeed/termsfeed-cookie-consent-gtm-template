@@ -153,7 +153,8 @@ setDefaultConsentState({
   ad_storage: 'denied',
   ad_user_data: 'denied',
   ad_personalization: 'denied',
-  analytics_storage: 'denied'
+  analytics_storage: 'denied',
+  wait_for_update: 500
 });
 
 let consentSettings = {
@@ -210,6 +211,7 @@ function initCookieConsent() {
 let url = 'https://www.termsfeed.com/public/cookie-consent/4.1.0/cookie-consent.js';
 if (queryPermission('inject_script', url)) {
     injectScript(url, initCookieConsent, data.gtmOnFailure);
+    data.gtmOnSuccess();
 } else {
     data.gtmOnFailure();
 }
