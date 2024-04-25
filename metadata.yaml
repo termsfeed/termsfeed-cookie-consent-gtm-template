@@ -1,6 +1,8 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
+  - sha: 9db736c9ba2f6533d083a19e7f930baf9da1d53a
+    changeNotes: Updated with wait_for_update property to setDefaultConsentState. Add gtmOnSuccess() callback.
   - sha: 4e4c9c912256194f473a8ad854f6f70ca2e576f5
     changeNotes: Updated with language select menu, removed consent type (default set to express), added default consent states + fixed missing comma in previous commit 
   - sha: dfc284796f913fab14b67f18584064ddfbcf7852
