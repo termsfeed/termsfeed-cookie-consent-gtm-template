@@ -21,7 +21,7 @@ ___INFO___
   "brand": {
     "id": "termsfeed_cookie_consent_4_1",
     "displayName": "TermsFeed Cookie Consent (4.1)",
-    "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUaVKkpX68rYa8yZrI0Z7M7bbVXgsBnjsZojsZzlsp1mMuHpdKJp9OKqNOWsdiXsdiYstidttqnvd6sweC8zebB0ejg6PTh6fT5+v39/v7////h+4i/AAAAAWJLR0QadWfkMgAAAGFJREFUSMdjYBgFo2AoAmEpHIAHhwZRXBoEh5gGbkYUIERQAzuqGO8g0MCJKsZHUIOEGBBwgLjcQIa4JHHBygXi8pMQD6MaqKhBBJcGARwaWNhggBnEZYVzmUbLu1EwGAAAtPMnQitCqewAAAAASUVORK5CYII="
+    "thumbnail": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAUVBMVEUaVKkpX68rYa8yZrI0Z7M7bbVXgsBnjsZojsZzlsp1mMuHpdKJp9OKqNOWsdiXsdiYstidttqnvd6sweC8zebB0ejg6PTh6fT5+v39/v7////h+4i/AAAAAWJLR0QadWfkMgAAAGFJREFUSMdjYBgFo2AoAmEpHIAHhwZRXBoEh5gGbkYUIERQAzuqGO8g0MCJKsZHUIOEGBBwgLjcQIa4JHHBygXi8pMQD6MaqKhBBJcGARwaWNhggBnEZYVzmUbLu1EwGAAAtPMnQitCqewAAAAASUVORK5CYII\u003d"
   },
   "description": "Integrates TermsFeed Cookie Consent (4.1) notice banner and enables Google Consent Mode V2. More information at https://www.termsfeed.com/cookie-consent/",
   "containerContexts": [
@@ -157,30 +157,9 @@ let consentSettings = {
     analytics_storage: 'denied'
 };
 
-setInWindow('callback_scripts_all_loaded', function () {
-    log('callback_scripts_all_loaded');
-    consentSettings = {
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
-        analytics_storage: 'granted',
-    };
-    updateConsentState(consentSettings);
-});
-
-setInWindow('callback_scripts_specific_loaded', function (level) {
-    log('callback_scripts_specific_loaded', level);
-    switch (level) {
-        case 'tracking':
-            consentSettings.analytics_storage = 'granted';
-            break;
-        case 'targeting':
-            consentSettings.ad_storage = 'granted';
-            consentSettings.ad_user_data = 'granted';
-            consentSettings.ad_personalization = 'granted';
-            break;
-    }
-    updateConsentState(consentSettings);
+setInWindow('callback_user_consent_saved', function() {
+  log('callback_user_consent_saved');
+  initConsentFromCookie();
 });
 
 function denyAllLevels() {
@@ -226,8 +205,7 @@ function initCookieConsent() {
         "preferences_center_close_button_hide": false,
         "page_refresh_confirmation_buttons": false,
         "callbacks": {
-            "scripts_all_loaded": "callback_scripts_all_loaded",
-            "scripts_specific_loaded": "callback_scripts_specific_loaded"
+            "user_consent_saved": "callback_user_consent_saved"
         },
         "callbacks_force": true
     });
@@ -585,46 +563,7 @@ ___WEB_PERMISSIONS___
                 "mapValue": [
                   {
                     "type": 1,
-                    "string": "callback_scripts_all_loaded"
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  }
-                ]
-              },
-              {
-                "type": 3,
-                "mapKey": [
-                  {
-                    "type": 1,
-                    "string": "key"
-                  },
-                  {
-                    "type": 1,
-                    "string": "read"
-                  },
-                  {
-                    "type": 1,
-                    "string": "write"
-                  },
-                  {
-                    "type": 1,
-                    "string": "execute"
-                  }
-                ],
-                "mapValue": [
-                  {
-                    "type": 1,
-                    "string": "callback_scripts_specific_loaded"
+                    "string": "callback_user_consent_saved"
                   },
                   {
                     "type": 8,
