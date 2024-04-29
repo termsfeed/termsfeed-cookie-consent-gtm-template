@@ -1,6 +1,8 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
+  - sha: e8e2f6eeb2d96976ec6a8a5a43c933dd346ede32
+    changeNotes: Updated with new options in the UI
   - sha: 14c86bc49dab584e18f2d79d03e10d3f0f7975de
     changeNotes: Updated with improved functionality regarding the consent state persistence and update
   - sha: 9db736c9ba2f6533d083a19e7f930baf9da1d53a
