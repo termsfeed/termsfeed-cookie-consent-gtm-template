@@ -127,6 +127,36 @@ ___TEMPLATE_PARAMETERS___
     ],
     "defaultValue": "en",
     "simpleValueType": true
+  },
+  {
+    "type": "TEXT",
+    "name": "website_privacy_policy_url",
+    "displayName": "Privacy Policy URL (optional, with https://)",
+    "simpleValueType": true
+  },
+  {
+    "type": "TEXT",
+    "name": "website_impressum_url",
+    "displayName": "Impressum (Imprint) URL (optional, with https://)",
+    "simpleValueType": true
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "notice_banner_insert_legal_urls",
+    "checkboxText": "Append the legal pages URLs (if any) in the notice banner text",
+    "simpleValueType": true
+  }
+  {
+    "type": "CHECKBOX",
+    "name": "notice_banner_reject_button_hide",
+    "checkboxText": "Hide the I Decline button from the notice banner",
+    "simpleValueType": true
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "preferences_center_close_button_hide",
+    "checkboxText": "Hide the Close button from the Preferences Center",
+    "simpleValueType": true
   }
 ]
 
@@ -196,10 +226,14 @@ function initCookieConsent() {
         "consent_type": "express",
         "palette": data.palette,
         "language": data.language,
+        "website_name": data.website_name,
+        "website_privacy_policy_url": data.website_privacy_policy_url,
+        "website_impressum_url": data.website_impressum_url,
         "page_load_consent_levels": ["strictly-necessary"],
-        "notice_banner_reject_button_hide": false,
-        "preferences_center_close_button_hide": false,
         "page_refresh_confirmation_buttons": false,
+        "notice_banner_reject_button_hide": data.notice_banner_reject_button_hide,
+        "notice_banner_insert_legal_urls": data.notice_banner_insert_legal_urls,
+        "preferences_center_close_button_hide": data.preferences_center_close_button_hide,
         "callbacks": {
             "user_consent_saved": "callback_user_consent_saved"
         },
