@@ -93,10 +93,6 @@ ___TEMPLATE_PARAMETERS___
         "displayValue": "English (UK)"
       },
       {
-        "value": "interstitial",
-        "displayValue": "Interstitial dialog"
-      },
-      {
         "value": "de",
         "displayValue": "German"
       },
