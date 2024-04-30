@@ -145,7 +145,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "notice_banner_insert_legal_urls",
     "checkboxText": "Append the legal pages URLs (if any) in the notice banner text",
     "simpleValueType": true
-  }
+  },
   {
     "type": "CHECKBOX",
     "name": "notice_banner_reject_button_hide",
