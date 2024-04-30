@@ -1,6 +1,8 @@
 homepage: "https://www.termsfeed.com"
 documentation: "https://www.termsfeed.com/cookie-consent"
 versions:
+  - sha: ae1896b315c749758ea4e82f1f07b7cba3076da4
+    changeNotes: Updated with bugfix on missing comma
   - sha: e8e2f6eeb2d96976ec6a8a5a43c933dd346ede32
     changeNotes: Updated with new options in the UI
   - sha: 14c86bc49dab584e18f2d79d03e10d3f0f7975de
