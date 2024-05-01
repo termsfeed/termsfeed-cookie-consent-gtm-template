@@ -176,13 +176,6 @@ const callInWindow = require('callInWindow');
 const setInWindow = require('setInWindow');
 const termsfeedCookieConsentLevels = 'cookie_consent_level';
 
-let consentSettings = {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied'
-};
-
 setInWindow('callback_user_consent_saved', function() {
   log('callback_user_consent_saved');
   initConsentFromCookie();
