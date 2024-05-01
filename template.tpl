@@ -202,7 +202,7 @@ function initConsentFromCookie() {
     const cookieObject = JSON.parse(cookie);
     const consentStatus = cookieObject.targeting ? 'granted' : 'denied';
 
-    consentSettings = {
+    let consentSettings = {
         analytics_storage: cookieObject.tracking ? 'granted' : 'denied',
         ad_storage: consentStatus,
         ad_user_data: consentStatus,
@@ -210,7 +210,6 @@ function initConsentFromCookie() {
     };
 
     updateConsentState(consentSettings);
-
 }
 
 function initCookieConsent() {
