@@ -123,6 +123,94 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "nl",
         "displayValue": "Dutch"
+      },
+      {
+        "value": "pt",
+        "displayValue": "Portugese"
+      },
+      {
+        "value": "fi",
+        "displayValue": "Finnish"
+      },
+      {
+        "value": "hu",
+        "displayValue": "Hungarian"
+      },
+      {
+        "value": "cs",
+        "displayValue": "Czech"
+      },
+      {
+        "value": "hr",
+        "displayValue": "Croatian"
+      },
+      {
+        "value": "da",
+        "displayValue": "Danish"
+      },
+      {
+        "value": "sk",
+        "displayValue": "Slovak"
+      },
+      {
+        "value": "sl",
+        "displayValue": "Slovenian"
+      },
+      {
+        "value": "pl",
+        "displayValue": "Polish"
+      },
+      {
+        "value": "el",
+        "displayValue": "Greek"
+      },
+      {
+        "value": "mk",
+        "displayValue": "Macedonian"
+      },
+      {
+        "value": "ro",
+        "displayValue": "Romanian"
+      },
+      {
+        "value": "sr",
+        "displayValue": "Serbian"
+      },
+      {
+        "value": "et",
+        "displayValue": "Estonian"
+      },
+      {
+        "value": "lt",
+        "displayValue": "Lithuanian"
+      },
+      {
+        "value": "lv",
+        "displayValue": "Latvian"
+      },
+      {
+        "value": "ru",
+        "displayValue": "Russian"
+      },
+      {
+        "value": "bg",
+        "displayValue": "Bulgarian"
+      },
+      {
+        "value": "cy",
+        "displayValue": "Welsh"
+      },
+      {
+        "value": "ja",
+        "displayValue": "Japanese"
+      },
+      {
+        "value": "ar",
+        "displayValue": "Arabic"
+      },
+      {
+        "value": "tr",
+        "displayValue": "Turkish"
       }
     ],
     "defaultValue": "en",
