@@ -264,13 +264,6 @@ const callInWindow = require('callInWindow');
 const setInWindow = require('setInWindow');
 const termsfeedCookieConsentLevels = 'cookie_consent_level';
 
-let consentSettings = {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied'
-};
-
 setInWindow('callback_user_consent_saved', function() {
   log('callback_user_consent_saved');
   initConsentFromCookie();
@@ -297,7 +290,7 @@ function initConsentFromCookie() {
     const cookieObject = JSON.parse(cookie);
     const consentStatus = cookieObject.targeting ? 'granted' : 'denied';
 
-    consentSettings = {
+    let consentSettings = {
         analytics_storage: cookieObject.tracking ? 'granted' : 'denied',
         ad_storage: consentStatus,
         ad_user_data: consentStatus,
@@ -305,7 +298,6 @@ function initConsentFromCookie() {
     };
 
     updateConsentState(consentSettings);
-
 }
 
 function initCookieConsent() {
